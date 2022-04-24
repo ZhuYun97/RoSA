@@ -7,7 +7,7 @@ In IJCAI 2022 <br>
 ![FRAMEWORK](./assets/framework.PNG)
 
 ## Usage
-### Command for  training model on Cora dataset
+**Command for  training model on Cora dataset**
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train.py --dataset=Cora --config=config.yaml --ad=True --rectified=True
 ```
