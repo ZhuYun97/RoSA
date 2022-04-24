@@ -8,6 +8,7 @@ This is the first work dedicated to solving non-aligned node-node graph contrast
 ![FRAMEWORK](./assets/framework.PNG)
 
 ## Files
+```
    .
     ├── dataset_apis                  # Code process datasets.
     │   ├── topology_dist             # Storing the distance of the shortest path (SPD) between vi and vj.
@@ -25,7 +26,7 @@ This is the first work dedicated to solving non-aligned node-node graph contrast
     ├── model.py                      # Code for building up model.
     ├── train.py                      # Training process.
     └── ...
-
+```
 
 ## Setup
 Recommand you to set up a Python virtual environment with the required dependencies as follows:
