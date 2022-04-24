@@ -11,12 +11,12 @@ This is the first work dedicated to solving non-aligned node-node graph contrast
 ```
    .
     ├── dataset_apis                  # Code process datasets.
-    │   ├── topology_dist             # Storing the distance of the shortest path (SPD) between vi and vj.
-    │   ├── citeseer.py               # processing for citeseer dataset.
-    │   ├── cora.py                   # processing for cora dataset. 
-    │   ├── dblp.py                   # processing for dblp dataset.
-    │   ├── pubmed.py                 # processing for pubmed dataset. 
-    │   └── ...                       # More datasets will be added.
+    │   ├── topology_dist              # Storing the distance of the shortest path (SPD) between vi and vj.
+    │   ├── citeseer.py                # processing for citeseer dataset.
+    │   ├── cora.py                    # processing for cora dataset. 
+    │   ├── dblp.py                    # processing for dblp dataset.
+    │   ├── pubmed.py                  # processing for pubmed dataset. 
+    │   └── ...                        # More datasets will be added.
     │
     ├── adversarial.py                # Code for unsupervised adversarial training.
     ├── augmentation.py               # Code for augmentation.
