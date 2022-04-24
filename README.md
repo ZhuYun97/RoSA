@@ -15,23 +15,23 @@ cora.py
 citeseer.py
 adversarial.py
 ```
-   .
-    ├── dataset_apis                  # Code process datasets.
-    │   ├── topology_dist             # Storing the distance of the shortest path (SPD) between vi and vj.
-    │   ├── citeseer.py               # processing for citeseer dataset.
-    │   ├── cora.py                   # processing for cora dataset. 
-    │   ├── dblp.py                   # processing for dblp dataset.
-    │   ├── pubmed.py                 # processing for pubmed dataset. 
-    │   └── ...                       # More datasets will be added.
-    │
-    ├── adversarial.py                # Code for unsupervised adversarial training.
-    ├── augmentation.py               # Code for augmentation.
-    ├── config.yaml                   # Configurations for our method.
-    ├── eval.py                       # Code for evaluation.
-    ├── global_var.py                 # Code for storing global variable.
-    ├── model.py                      # Code for building up model.
-    ├── train.py                      # Training process.
-    └── ...
+.
+├── dataset_apis                  # Code process datasets.
+│   ├── topology_dist             # Storing the distance of the shortest path (SPD) between vi and vj.
+│   ├── citeseer.py               # processing for citeseer dataset.
+│   ├── cora.py                   # processing for cora dataset. 
+│   ├── dblp.py                   # processing for dblp dataset.
+│   ├── pubmed.py                 # processing for pubmed dataset. 
+│   └── ...                       # More datasets will be added.
+│
+├── adversarial.py                # Code for unsupervised adversarial training.
+├── augmentation.py               # Code for augmentation.
+├── config.yaml                   # Configurations for our method.
+├── eval.py                       # Code for evaluation.
+├── global_var.py                 # Code for storing global variable.
+├── model.py                      # Code for building up model.
+├── train.py                      # Training process.
+└── ...
 
 
 ## Setup
