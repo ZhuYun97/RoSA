@@ -28,4 +28,4 @@ CUDA_VISIBLE_DEVICES=0 python train.py --dataset=DBLP --config=config.yaml
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train.py --dataset=Citeseer --config=config.yaml --ad=True --rectified=True
-```
+```# RoSA
