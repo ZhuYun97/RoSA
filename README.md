@@ -62,10 +62,30 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | GRACE | 78.19 ± 0.01 | 87.46 ± 0.22 | 92.15 ± 0.24 | 92.93 ± 0.01 | 95.26 ± 0.02 |
 | GCA   | 78.35 ± 0.05 | 88.94 ± 0.15 | 92.53 ± 0.16 | 93.10 ± 0.01 | 95.73 ± 0.03 |
 | BGRL  | 79.36 ± 0.53 | 89.68 ± 0.31 | 92.87 ± 0.27 | 93.21 ± 0.18 | 95.56 ± 0.12 |
-| RoSA  | 79.99 ± 0.07 | 90.10 ± 0.25  | 93.67 ± 0.07 | 92.83 ± 0.11 | 95.59 ± 0.08|
+| RoSA  | 79.99 ± 0.07 | 90.10 ± 0.25 | 93.67 ± 0.07 | 92.83 ± 0.11 | 95.59 ± 0.08|
 
 > The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and public the hyperparameters of these datasets after finishing searching!
 
 
 ## Citation
-If you use this code for you research, please cite our paper. TBD
+If you use this code for you research, please cite our paper. 
+```
+@misc{https://doi.org/10.48550/arxiv.2204.13846,
+  doi = {10.48550/ARXIV.2204.13846},
+  
+  url = {https://arxiv.org/abs/2204.13846},
+  
+  author = {Zhu, Yun and Guo, Jianhao and Wu, Fei and Tang, Siliang},
+  
+  keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  
+  title = {RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning},
+  
+  publisher = {arXiv},
+  
+  year = {2022},
+  
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+```
