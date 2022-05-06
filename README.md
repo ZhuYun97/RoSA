@@ -1,5 +1,5 @@
 # RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning
-This repo is Pytorch implemention of <br>[RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning](https://github.com/ZhuYun97/RoSA)[\[poster\]](https://github.com/ZhuYun97/RoSA)[\[appendix\]](https://github.com/ZhuYun97/RoSA) <br><br>
+This repo is Pytorch implemention of <br>[RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning](https://arxiv.org/abs/2204.13846)[\[poster\]](https://github.com/ZhuYun97/RoSA)[\[appendix\]](https://arxiv.org/abs/2204.13846) <br><br>
 Yun Zhu\*, Jianhao Guo\*, Fei Wu, Siliang Tang† <br><br>
 In IJCAI 2022 <br>
 
