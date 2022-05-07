@@ -64,10 +64,15 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | BGRL  | 79.36 ± 0.53 | 89.68 ± 0.31 | 92.87 ± 0.27 | **93.21 ± 0.18** | 95.56 ± 0.12 |
 | RoSA  | **79.99 ± 0.07** | **90.10 ± 0.25** | **93.67 ± 0.07** | 92.94 ± 0.14 | **95.76 ± 0.09** |
 
-> The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and public the hyperparameters of these datasets after finishing searching!
-<!-- |       | Wiki-CS      | Amazon-Computers | Amazon-Photo | Coauthor-CS  | Coauthor-Physics |
-| :----:| :----------: | :----------: | :----------: | :----------: | :----------: | -->
-
+> The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and the hyperparameters of these datasets after finishing searching!
+|                  | Hidden size | Batch size | Learning rate | Walk length  | Epochs | tau | $p_{e,1}$ | $p_{e,1}$ | $p_{f,1}$ | $p_{f,1}$ |
+| :----            | :---------- | :--------- | :------------ | :----------- | :----- | :-- | :-------- | :-------- | :-------- | :-------- |
+| Wiki-CS          | 256         | 256        | 1e-3          | 10           | 500    | 0.3 | 0.2       | 0.3       | 0.2       | 0.3       |
+| Amazon-Computers | 128         | 256        | 1e-3          | 10           | 500    | 0.4 | 0.4       | 0.5       | 0.1       | 0.2       |
+| Amazon-Photo     | 256         | 256        | 1e-3          | 10           | 500    | 0.3 | 0.2       | 0.3       | 0.2       | 0.3       |
+| Coauthor-CS      | 256         | 256        | 1e-3          | 10           | 100    | 0.4 | 0.2       | 0.3       | 0.2       | 0.3       |
+| Coauthor-Physics | 128         | 256        | 1e-3          | 10           | 100    | 0.5 | 0.2       | 0.3       | 0.2       | 0.3       |
+prelu, weight decay=5e-4,adamw
 
 ## Citation
 If you use this code for you research, please cite our paper. 
