@@ -65,6 +65,7 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | RoSA  | **79.99 ± 0.07** | **90.10 ± 0.25** | **93.67 ± 0.07** | 92.94 ± 0.14 | **95.76 ± 0.09** |
 
 > The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and the hyperparameters of these datasets after finishing searching!
+
 |                  | Hidden size | Batch size | Learning rate | Walk length  | Epochs | tau | $p_{e,1}$ | $p_{e,1}$ | $p_{f,1}$ | $p_{f,1}$ |
 | :----            | :---------- | :--------- | :------------ | :----------- | :----- | :-- | :-------- | :-------- | :-------- | :-------- |
 | Wiki-CS          | 256         | 256        | 1e-3          | 10           | 500    | 0.3 | 0.2       | 0.3       | 0.2       | 0.3       |
