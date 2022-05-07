@@ -73,6 +73,7 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | Amazon-Photo     | 256         | 256        | 1e-3          | 10           | 500    | 0.3 | 0.2       | 0.3       | 0.2       | 0.3       |
 | Coauthor-CS      | 256         | 256        | 1e-3          | 10           | 100    | 0.4 | 0.2       | 0.3       | 0.2       | 0.3       |
 | Coauthor-Physics | 128         | 256        | 1e-3          | 10           | 100    | 0.5 | 0.2       | 0.3       | 0.2       | 0.3       |
+
 prelu, weight decay=5e-4,adamw
 
 ## Citation
