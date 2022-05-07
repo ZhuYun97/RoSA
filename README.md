@@ -1,5 +1,5 @@
 # RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning
-This repo is Pytorch implemention of <br>[RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning](https://arxiv.org/abs/2204.13846)[\[poster\]](https://github.com/ZhuYun97/RoSA)[\[appendix\]](https://arxiv.org/abs/2204.13846) <br><br>
+This repo is Pytorch implemention of <br>[RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning](https://arxiv.org/abs/2204.13846)\[poster\][\[appendix\]](https://arxiv.org/abs/2204.13846) <br><br>
 Yun Zhu\*, Jianhao Guo\*, Fei Wu, Siliang Tang† <br><br>
 In IJCAI 2022 <br>
 
@@ -61,10 +61,12 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | MVGRL | 77.52 ± 0.08 | 87.52 ± 0.11 | 91.74 ± 0.07 | 92.11 ± 0.12 | 95.33 ± 0.03 |
 | GRACE | 78.19 ± 0.01 | 87.46 ± 0.22 | 92.15 ± 0.24 | 92.93 ± 0.01 | 95.26 ± 0.02 |
 | GCA   | 78.35 ± 0.05 | 88.94 ± 0.15 | 92.53 ± 0.16 | 93.10 ± 0.01 | 95.73 ± 0.03 |
-| BGRL  | 79.36 ± 0.53 | 89.68 ± 0.31 | 92.87 ± 0.27 | 93.21 ± 0.18 | 95.56 ± 0.12 |
-| RoSA  | 79.99 ± 0.07 | 90.10 ± 0.25 | 93.67 ± 0.07 | 92.83 ± 0.11 | 95.59 ± 0.08|
+| BGRL  | 79.36 ± 0.53 | 89.68 ± 0.31 | 92.87 ± 0.27 | **93.21 ± 0.18** | 95.56 ± 0.12 |
+| RoSA  | **79.99 ± 0.07** | **90.10 ± 0.25** | **93.67 ± 0.07** | 92.94 ± 0.14 | **95.76 ± 0.09** |
 
 > The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and public the hyperparameters of these datasets after finishing searching!
+<!-- |       | Wiki-CS      | Amazon-Computers | Amazon-Photo | Coauthor-CS  | Coauthor-Physics |
+| :----:| :----------: | :----------: | :----------: | :----------: | :----------: | -->
 
 
 ## Citation
