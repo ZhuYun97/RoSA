@@ -62,7 +62,7 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | GRACE | 78.19 ± 0.01 | 87.46 ± 0.22 | 92.15 ± 0.24 | 92.93 ± 0.01 | 95.26 ± 0.02 |
 | GCA   | 78.35 ± 0.05 | 88.94 ± 0.15 | 92.53 ± 0.16 | 93.10 ± 0.01 | 95.73 ± 0.03 |
 | BGRL  | 79.36 ± 0.53 | 89.68 ± 0.31 | 92.87 ± 0.27 | **93.21 ± 0.18** | 95.56 ± 0.12 |
-| RoSA  | **79.99 ± 0.07** | **90.10 ± 0.25** | **93.67 ± 0.07** | 92.94 ± 0.14 | **95.76 ± 0.09** |
+| RoSA  | **80.19 ± 0.57** | **90.10 ± 0.25** | **93.67 ± 0.07** | 93.12 ± 0.13 | **95.76 ± 0.09** |
 
 > The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and the hyperparameters of these datasets after finishing searching!
 
@@ -71,7 +71,7 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | Wiki-CS          | 256         | 256        | 1e-3          | 10           | 500    | 0.3 | 0.2       | 0.3       | 0.2       | 0.3       |
 | Amazon-Computers | 128         | 256        | 1e-3          | 10           | 500    | 0.4 | 0.4       | 0.5       | 0.1       | 0.2       |
 | Amazon-Photo     | 256         | 256        | 1e-3          | 10           | 500    | 0.3 | 0.2       | 0.3       | 0.2       | 0.3       |
-| Coauthor-CS      | 256         | 256        | 1e-3          | 10           | 100    | 0.4 | 0.2       | 0.3       | 0.2       | 0.3       |
+| Coauthor-CS      | 256         | 128        | 1e-3          | 10           | 100    | 0.4 | 0.2       | 0.3       | 0.2       | 0.3       |
 | Coauthor-Physics | 128         | 256        | 1e-3          | 10           | 100    | 0.5 | 0.2       | 0.3       | 0.2       | 0.3       |
 
 prelu, weight decay=5e-4,adamw
