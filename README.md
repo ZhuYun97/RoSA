@@ -66,7 +66,7 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 
 > The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and the hyperparameters of these datasets after finishing searching!
 
-|                  | Hidden size | Batch size | Learning rate | Walk length  | Epochs | tau | $p_{e,1}$ | $p_{e,1}$ | $p_{f,1}$ | $p_{f,1}$ |
+|                  | Hidden size | Batch size | Learning rate | Walk length  | Epochs | tau | p_{e,1} | p_{e,1} | p_{f,1} | p_{f,1} |
 | :----            | :---------- | :--------- | :------------ | :----------- | :----- | :-- | :-------- | :-------- | :-------- | :-------- |
 | Wiki-CS          | 256         | 256        | 1e-3          | 10           | 500    | 0.5 | 0.2       | 0.3       | 0.2       | 0.3       |
 | Amazon-Computers | 128         | 256        | 1e-3          | 10           | 500    | 0.4 | 0.4       | 0.5       | 0.1       | 0.2       |
