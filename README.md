@@ -74,7 +74,7 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | Coauthor-CS      | 256         | 128        | 1e-3          | 10           | 100    | 0.1 | 0.2       | 0.3       | 0.2       | 0.3       |
 | Coauthor-Physics | 128         | 256        | 1e-3          | 10           | 100    | 0.5 | 0.2       | 0.3       | 0.2       | 0.3       |
 
-In additions, we use prelu as activation function and use adamw optimizer with 5e-4 weight decay for all experimetns. The restart ratio of random walking is 0.5.
+In additions, we use `prelu` as activation function and use `adamw` optimizer with `5e-4 weight decay` for all experimetns. The restart ratio of random walking is 0.5.
 
 ## Citation
 If you use this code for you research, please cite our paper. 
