@@ -79,22 +79,10 @@ In additions, we use `prelu` as activation function and use `adamw` optimizer wi
 ## Citation
 If you use this code for you research, please cite our paper. 
 ```
-@misc{https://doi.org/10.48550/arxiv.2204.13846,
-  doi = {10.48550/ARXIV.2204.13846},
-  
-  url = {https://arxiv.org/abs/2204.13846},
-  
-  author = {Zhu, Yun and Guo, Jianhao and Wu, Fei and Tang, Siliang},
-  
-  keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  
-  title = {RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning},
-  
-  publisher = {arXiv},
-  
-  year = {2022},
-  
-  copyright = {arXiv.org perpetual, non-exclusive license}
+@article{zhu2022rosa,
+  title={RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning},
+  author={Zhu, Yun and Guo, Jianhao and Wu, Fei and Tang, Siliang},
+  journal={arXiv preprint arXiv:2204.13846},
+  year={2022}
 }
-
 ```
