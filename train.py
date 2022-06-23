@@ -1,4 +1,3 @@
-from torch_geometric.utils.isolated import remove_isolated_nodes
 from torch_geometric.data import Batch
 import numpy as np
 import torch
@@ -11,11 +10,12 @@ from torch_geometric.utils import contains_isolated_nodes, to_networkx
 from augmentation import RWR, DropEdgeAndFeature
 from model import RoSA
 from adversarial import ad_training
-from eval import eval
+from eval_utils import eval
 import global_var
 import networkx as nx
 import yaml
 from yaml import SafeLoader
+from tqdm import tqdm
 
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -61,7 +61,8 @@ def train(args):
     best = 9999
     best_t = 0
     
-    for epoch in range(args.epochs):
+    loop = tqdm(range(args.epochs))
+    for epoch in loop:
         model.train()
         for idx, graphs in enumerate(train_loader):
             model.train()
@@ -96,7 +97,7 @@ def train(args):
                 loss = ad_training(model, node_attack, views1.x.shape, args, device)
             else:
                 loss = model(views1, views2, views1.batch, views2.batch)
-            print(f"EPOCH {epoch} LOSS: {loss.item()}")
+            loop.set_postfix(loss = loss.item())
             loss.backward()
             optimizer.step()
 
@@ -134,8 +135,8 @@ def register_topology(args):
         topology_dist[0, :] = 1000 # used for padding nodes 
         topology_dist[:, 0] = 1000
 
-        for i in range(1, node_num+1):
-            print(f"processing {i}-th node")
+        for i in tqdm(range(1, node_num+1)):
+            # print(f"processing {i}-th node")
             for j in range(1, node_num+1):
                 if j-1 in generator[i-1].keys():
                     topology_dist[i][j] = generator[i-1][j-1]

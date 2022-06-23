@@ -43,6 +43,12 @@ CUDA_VISIBLE_DEVICES=0 python train.py --dataset=Cora --config=config.yaml --ad=
 ```
 Now supported datasets include Cora, Citeseer, Pubmed, DBLP. More datasets are coming soon!
 
+**Command for  testing model on Cora dataset**
+After training, the best checkpoint will be stored in `checkpoints\<Dataset>\` dir. Then you can test the checkpoint through this command:
+```bash
+CUDA_VISIBLE_DEVICES=0 python eval.py --dataset=Cora --config=config.yaml --ad=True
+```
+
 ### Illustration of arguements
 
 ```

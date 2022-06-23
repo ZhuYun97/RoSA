@@ -1,0 +1,20 @@
+# checkpoints
+checkpoints/
+
+# records for running
+runs/
+
+# dataset
+datasets/
+dataset_apis/topology_dist/*.pt
+
+# logs
+logs/
+
+
+# all pyc files_
+**/__pycache__
+
+**/.vscode
+**/ipynb_checkpoints
+*.ipynb

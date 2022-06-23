@@ -1,89 +1,59 @@
-import numpy as np
-import functools
-from sklearn.metrics import accuracy_score, f1_score
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.preprocessing import normalize, OneHotEncoder
-import importlib
+from eval_utils import eval
+import argparse
+import random
+from model import RoSA
+from eval_utils import eval
+import yaml
+from yaml import SafeLoader
 import torch
-from torch_sparse import SparseTensor
 
 
-def repeat(n_times):
-    def decorator(f):
-        @functools.wraps(f)
-        def wrapper(*args, **kwargs):
-            results = [f(*args, **kwargs) for _ in range(n_times)]
-            statistics = {}
-            for key in results[0].keys():
-                values = [r[key] for r in results]
-                statistics[key] = {
-                    'mean': np.mean(values),
-                    'std': np.std(values)}
-            print_statistics(statistics, f.__name__)
-            return statistics
-        return wrapper
-    return decorator
+def str2bool(v):
+    if isinstance(v, bool):
+        return v
+    if v.lower() in ('yes','y','true','t','1'):
+        return True
+    if v.lower() in ('no','n','false','f','0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+def get_parser():
+    parser = argparse.ArgumentParser(description='Description: Script to run our model.')
+    parser.add_argument('--config', type=str, default='config.yaml')
+    # dataset
+    parser.add_argument('--dataset',help='Cora, Citeseer , Pubmed, etc. Default=Cora', default='Cora')
 
+    return parser
 
-def prob_to_one_hot(y_pred):
-    ret = np.zeros(y_pred.shape, np.bool)
-    indices = np.argmax(y_pred, axis=1)
-    for i in range(y_pred.shape[0]):
-        ret[i][indices[i]] = True
-    return ret
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
+if __name__ == "__main__":
+    parser = get_parser()
+    try:
+        args = parser.parse_args()
+    except:
+        exit()
+    config = yaml.load(open(args.config), Loader=SafeLoader)[args.dataset]
 
-def print_statistics(statistics, function_name):
-    print(f'(E) | {function_name}:', end=' ')
-    for i, key in enumerate(statistics.keys()):
-        mean = statistics[key]['mean']
-        std = statistics[key]['std']
-        print(f'{key}={mean:.4f}+-{std:.4f}', end='')
-        if i != len(statistics.keys()) - 1:
-            print(',', end=' ')
-        else:
-            print()
+    # combine args and config
+    for k, v in config.items():
+        args.__setattr__(k, v)
 
+    # repeated experiment
+    torch.manual_seed(args.seed)
+    random.seed(12345)
 
-@repeat(5)
-def label_classification(embeddings, y, ratio=0.1):
-    X = embeddings.detach().cpu().numpy()
-    Y = y.detach().cpu().numpy()
-    Y = Y.reshape(-1, 1)
-    onehot_encoder = OneHotEncoder(categories='auto').fit(Y)
-    Y = onehot_encoder.transform(Y).toarray().astype(np.bool)
+    model = RoSA(
+        # model
+        encoder=args.encoder,
+        # shape
+        input_dim=args.input_dim,
+        # model configuration
+        layer_num=args.layer_num,
+        hidden=args.hidden,
+        proj_shape=(args.proj_middim, args.proj_outdim),
+    ).to(device)
 
-    X = normalize(X, norm='l2')
+    model.load_state_dict(torch.load(f"checkpoints/{args.dataset}/best.pt"))
 
-    X_train, X_test, y_train, y_test = train_test_split(X, Y,
-                                                        test_size=1 - ratio)
-
-    logreg = LogisticRegression(solver='liblinear')
-    c = 2.0 ** np.arange(-10, 10)
-
-    clf = GridSearchCV(estimator=OneVsRestClassifier(logreg),
-                       param_grid=dict(estimator__C=c), n_jobs=8, cv=5,
-                       verbose=0)
-    clf.fit(X_train, y_train)
-
-    y_pred = clf.predict_proba(X_test)
-    y_pred = prob_to_one_hot(y_pred)
-
-    acc = accuracy_score(y_test, y_pred)
-    return {"accuracy": acc}
-
-
-def eval(args, model, device):
-    model.eval()
-    load_dataset = getattr(importlib.import_module(f"dataset_apis.{args.dataset.lower()}"), 'load_eval_trainset')
-    dataset = load_dataset()
-    data = dataset[0].to(device)
-    z = model.embed(data)
-    acc = label_classification(z, data.y, ratio=0.1)
-    return acc
-
-    
-    
-    
+    test_acc = eval(args, model, device)
