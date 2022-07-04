@@ -34,7 +34,7 @@ Recommand you to set up a Python virtual environment with the required dependenc
 conda create -n rosa python==3.9
 conda activate rosa 
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
-pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.8.0+cu111.html
 ```
 ## Usage
 **Command for  training model on Cora dataset**
