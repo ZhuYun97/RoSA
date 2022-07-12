@@ -86,3 +86,70 @@ DBLP:
   optimizer: adamw
   patience: 500
   inductive: False
+Cornell:
+  seed: 39788
+  learning_rate: 0.001
+  input_dim: 1703
+  hidden: 64
+  proj_middim: 64
+  proj_outdim: 64
+  encoder: gcn
+  layer_num: 2
+  walk_step: 10
+  restart_ratio: 0.0
+  graph_num: 256
+  drop_edge_rate_1: 0.2
+  drop_edge_rate_2: 0.3
+  drop_feature_rate_1: 0.2
+  drop_feature_rate_2: 0.3
+  tau: 0.4
+  epochs: 200
+  weight_decay: 0.0005
+  optimizer: sgd
+  patience: 20
+  inductive: False
+Texas:
+  seed: 39788
+  learning_rate: 0.001
+  input_dim: 1703
+  hidden: 64
+  proj_middim: 64
+  proj_outdim: 64
+  encoder: gcn
+  layer_num: 2
+  walk_step: 20
+  restart_ratio: 0.0
+  graph_num: 256
+  drop_edge_rate_1: 0.2
+  drop_edge_rate_2: 0.3
+  drop_feature_rate_1: 0.2
+  drop_feature_rate_2: 0.3
+  tau: 0.4
+  epochs: 200
+  weight_decay: 0.0005
+  optimizer: sgd
+  patience: 20
+  inductive: False
+Wisconsin:
+  seed: 39788
+  learning_rate: 0.001
+  input_dim: 1703
+  hidden: 64
+  proj_middim: 64
+  proj_outdim: 64
+  encoder: gcn
+  layer_num: 2
+  walk_step: 10
+  restart_ratio: 0.0
+  graph_num: 256
+  drop_edge_rate_1: 0.2
+  drop_edge_rate_2: 0.3
+  drop_feature_rate_1: 0.2
+  drop_feature_rate_2: 0.3
+  tau: 0.4
+  epochs: 200
+  weight_decay: 0.0005
+  optimizer: sgd
+  patience: 20
+  inductive: False
+

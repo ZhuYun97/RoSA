@@ -37,6 +37,7 @@ class RoSA(torch.nn.Module):
         self.T = T
         self.rectified = is_rectified
         self.topo_t = topo_t
+        self.hidden = hidden
 
         # adapative size for mlp's input dim
         fake_x = torch.rand((2, input_dim))
@@ -248,3 +249,22 @@ def matrix_diag(diagonal):
     indices = indices.diagonal(dim1=-2, dim2=-1)
     result.view(-1)[indices] = diagonal
     return result
+
+class LogReg(torch.nn.Module):
+    def __init__(self, ft_in, nb_classes):
+        super(LogReg, self).__init__()
+        self.fc = torch.nn.Linear(ft_in, nb_classes)
+
+        for m in self.modules():
+            self.weights_init(m)
+
+    def weights_init(self, m):
+        if isinstance(m, torch.nn.Linear):
+            torch.nn.init.xavier_uniform_(m.weight.data)
+            # torch.nn.init.xavier_normal_(m.weight.data)
+            if m.bias is not None:
+                m.bias.data.fill_(0.0)
+
+    def forward(self, seq):
+        ret = self.fc(seq)
+        return ret

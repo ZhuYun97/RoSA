@@ -16,11 +16,15 @@ This is the first work dedicated to solving non-aligned node-node graph contrast
     │   ├── cora.py                    # processing for cora dataset. 
     │   ├── dblp.py                    # processing for dblp dataset.
     │   ├── pubmed.py                  # processing for pubmed dataset. 
+    │   ├── cornell.py                 # processing for cornell dataset. 
+    │   ├── wisconsin.py               # processing for wisconsin dataset. 
+    │   ├── texas.py                   # processing for texas dataset.     
     │   └── ...                        # More datasets will be added.
     │
     ├── adversarial.py                # Code for unsupervised adversarial training.
     ├── augmentation.py               # Code for augmentation.
     ├── config.yaml                   # Configurations for our method.
+    ├── eval_utils.py                 # The toolkits for evaluation.
     ├── eval.py                       # Code for evaluation.
     ├── global_var.py                 # Code for storing global variable.
     ├── model.py                      # Code for building up model.
@@ -34,25 +38,29 @@ Recommand you to set up a Python virtual environment with the required dependenc
 conda create -n rosa python==3.9
 conda activate rosa 
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
-pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.9.0+cu111.html
+pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.8.0+cu111.html
 ```
 ## Usage
 **Command for  training model on Cora dataset**
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train.py --dataset=Cora --config=config.yaml --ad=True --rectified=True
 ```
-Now supported datasets include Cora, Citeseer, Pubmed, DBLP. More datasets are coming soon!
+For efficient usage, you can run as below:
+```bash
+CUDA_VISIBLE_DEVICES=0 python train.py --dataset=Cora --config=config.yaml --ad=False --rectified=False
+```
+Now supported datasets include Cora, Citeseer, Pubmed, DBLP, Cornell, Wisconsin, Texas. More datasets are coming soon!
 
-**Command for  testing model on Cora dataset**
+**Command for  testing model on Cora dataset**<br>
 After training, the best checkpoint will be stored in `checkpoints\<Dataset>\` dir. Then you can test the checkpoint through this command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 python eval.py --dataset=Cora --config=config.yaml --ad=True
+CUDA_VISIBLE_DEVICES=0 python eval.py --dataset=Cora --config=config.yaml
 ```
 
 ### Illustration of arguements
 
 ```
---dataset: default Cora, [Cora, Citeseer, Pubmed, DBLP] can also be choosen
+--dataset: default Cora, [Cora, Citeseer, Pubmed, DBLP, Cornell, Wisconsin, Texas] can also be choosen
 --rectified: defalut False, use rectified cost matrix instead of vanilla cost matrix (if True)
 --ad: default False, use unsupervised adversarial training (if True)
 --aligned: default False,  use aligned views (if True)

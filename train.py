@@ -67,7 +67,7 @@ def train(args):
         for idx, graphs in enumerate(train_loader):
             model.train()
             optimizer.zero_grad()
-            # transform the [batch, batch, batch] into one batch
+            # Because the augmentation function, the processed batch in loader will be [batch, batch, batch], we should collect them into one batch
             view1_list = []
             view2_list = []
             assert len(graphs[0]) == len(graphs[1])
