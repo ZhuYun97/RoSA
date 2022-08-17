@@ -152,6 +152,7 @@ def label_classification(embeddings, y, ratio=0.1):
 
     acc = accuracy_score(y_test, y_pred)
     return {"accuracy": acc}
+    return acc
 
 
 def heter_eval(model, z, y, train_mask, val_mask, test_mask, device):
@@ -224,7 +225,3 @@ def eval(args, model, device):
     else:
         raise NotImplementedError(f"{args.dataset} is not supported!")
     return acc
-
-    
-    
-    

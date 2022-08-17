@@ -18,3 +18,5 @@ logs/
 **/.vscode
 **/ipynb_checkpoints
 *.ipynb
+
+transform_ckpt.py

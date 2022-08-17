@@ -99,7 +99,9 @@ class RoSA(torch.nn.Module):
             transport_matrix = torch.bmm(torch.bmm(matrix_diag(v), P), matrix_diag(u))
         assert cost_matrix.shape == transport_matrix.shape
 
-        S = torch.mul(transport_matrix, 1-cost_matrix).sum(dim=1).sum(dim=1, keepdim=True) # 2S - 1
+        # S = torch.mul(transport_matrix, 1-cost_matrix).sum(dim=1).sum(dim=1, keepdim=True)
+        emd = torch.mul(transport_matrix, cost_matrix).sum(dim=1).sum(dim=1, keepdim=True)
+        S = 2-2*emd
         return S
 
     def batched_semi_emd_loss(self, reps1, reps2, batch1, batch2, original_idx1=None, original_idx2=None):
