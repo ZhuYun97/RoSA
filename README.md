@@ -67,7 +67,7 @@ CUDA_VISIBLE_DEVICES=0 python eval.py --dataset=Cora --config=config.yaml
 ```
 
 ### More experiments
-We conduct experimetns on other five commonly used datasets with RoSA, the results show in Table 1(still updating!). RoSA reaches SOTA on these datasets which proves the effectiveness of our method.
+We conduct experimetns on other five commonly used datasets with RoSA, the results show in Table 1. RoSA reaches SOTA on these datasets which proves the effectiveness of our method.
 | Method | Wiki-CS | Amazon-Computers | Amazon-Photo | Coauthor-CS  | Coauthor-Physics |
 | :----:| :----------: | :----------: | :----------: | :----------: | :----------: |
 | DGI   | 75.35 ± 0.14 | 83.95 ± 0.47 | 91.61 ± 0.22 | 92.15 ± 0.63 | 94.51 ± 0.52 |
@@ -78,7 +78,6 @@ We conduct experimetns on other five commonly used datasets with RoSA, the resul
 | BGRL  | 79.36 ± 0.53 | 89.68 ± 0.31 | 92.87 ± 0.27 | 93.21 ± 0.18 | 95.56 ± 0.12 |
 | RoSA  | **80.11 ± 0.10** | **90.12 ± 0.26** | **93.67 ± 0.07** | **93.23 ± 0.13** | **95.76 ± 0.09** |
 
-> The good hyperparameters of RoSA is still under searching. We will update the results of RoSA and the hyperparameters of these datasets after finishing searching!
 
 |                  | Hidden size | Batch size | Learning rate | Walk length  | Epochs | tau | p_{e,1} | p_{e,1} | p_{f,1} | p_{f,1} |
 | :----            | :---------- | :--------- | :------------ | :----------- | :----- | :-- | :-------- | :-------- | :-------- | :-------- |
@@ -93,10 +92,18 @@ In additions, we use `prelu` as activation function and use `adamw` optimizer wi
 ## Citation
 If you use this code for you research, please cite our paper. 
 ```
-@article{zhu2022rosa,
-  title={RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning},
-  author={Zhu, Yun and Guo, Jianhao and Wu, Fei and Tang, Siliang},
-  journal={arXiv preprint arXiv:2204.13846},
-  year={2022}
+@inproceedings{ijcai2022-527,
+  title     = {RoSA: A Robust Self-Aligned Framework for Node-Node Graph Contrastive Learning},
+  author    = {Zhu, Yun and Guo, Jianhao and Wu, Fei and Tang, Siliang},
+  booktitle = {Proceedings of the Thirty-First International Joint Conference on
+               Artificial Intelligence, {IJCAI-22}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {Lud De Raedt},
+  pages     = {3795--3801},
+  year      = {2022},
+  month     = {7},
+  note      = {Main Track}
+  doi       = {10.24963/ijcai.2022/527},
+  url       = {https://doi.org/10.24963/ijcai.2022/527},
 }
 ```
