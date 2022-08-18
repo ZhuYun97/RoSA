@@ -64,7 +64,12 @@ The usage is quite simple, you just run the command below. The ckpts will be dow
 ```bash
 CUDA_VISIBLE_DEVICES=0 python test_runs.py --dataset=Cora
 ```
+> After 20 runs, test acc: 84.56 ± 0.67
 
+```bash
+CUDA_VISIBLE_DEVICES=0 python test_runs.py --dataset=Citeseer
+```
+> After 20 runs, test acc: 73.5 ± 0.45
 
 ### Illustration of arguements
 
