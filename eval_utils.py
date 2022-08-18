@@ -126,7 +126,7 @@ def print_statistics(statistics, function_name):
 
 
 # borrow from GRACE [https://github.com/CRIPAC-DIG/GRACE/blob/master/eval.py]
-@repeat(5)
+# @repeat(5)
 def label_classification(embeddings, y, ratio=0.1):
     X = embeddings.detach().cpu().numpy()
     Y = y.detach().cpu().numpy()
@@ -151,7 +151,7 @@ def label_classification(embeddings, y, ratio=0.1):
     y_pred = prob_to_one_hot(y_pred)
 
     acc = accuracy_score(y_test, y_pred)
-    return {"accuracy": acc}
+    # return {"accuracy": acc}
     return acc
 
 

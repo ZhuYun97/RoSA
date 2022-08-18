@@ -10,6 +10,7 @@ from yaml import SafeLoader
 import torch
 import numpy as np
 from tqdm import tqdm
+import os, wget
 
 
 def str2bool(v):
@@ -31,6 +32,13 @@ def get_parser():
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+eval_seeds = {
+    'Cora': 8085,
+    'Citeseer': 2230
+}
+
+download_url = 'https://raw.githubusercontent.com/ZhuYun97/RoSA_ckpts/main/'
+
 if __name__ == "__main__":
     parser = get_parser()
     try:
@@ -44,8 +52,14 @@ if __name__ == "__main__":
         args.__setattr__(k, v)
 
     # repeated experiment
-    torch.manual_seed(args.seed)
-    random.seed(12345)
+    seed = eval_seeds[args.dataset]
+    torch.manual_seed(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.device_count() > 0:
+        torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic=True
 
     model = RoSA(
         # model
@@ -57,11 +71,23 @@ if __name__ == "__main__":
         hidden=args.hidden,
         proj_shape=(args.proj_middim, args.proj_outdim),
     ).to(device)
+
+    dir = f'./runs_ckpts_{args.dataset}'
+    exist_ckpts = os.path.exists(dir)
+    if not exist_ckpts:
+        os.makedirs(dir)
     
     test_acc_list = []
-    for i in tqdm(range(100)):
-        pretrained_dicts = torch.load(f"G:/20runs_cora_ckpts/cora_run{i%20}.pt")
+    progress = tqdm(range(20))
+    for i in progress:
+        file = os.path.join(dir, f'{args.dataset}_run{i}.pt')
+        if not os.path.exists(file):
+            # download non-existing ckpt
+            file_url = os.path.join(download_url, f'runs_ckpts_{args.dataset}/{args.dataset}_run{i}.pt')
+            wget.download(file_url, file)
+        pretrained_dicts = torch.load(file)
         model.load_state_dict(pretrained_dicts)
         test_acc = eval(args, model, device)
         test_acc_list.append(test_acc)
-    print(f"test acc: {round(np.mean(test_acc_list)*100, 2)} ± {round(np.std(test_acc_list)*100, 2)}")
+        progress.set_postfix({'RUN': i, 'ACC': test_acc*100})
+    print(f"After 20 runs, test acc: {round(np.mean(test_acc_list)*100, 2)} ± {round(np.std(test_acc_list)*100, 2)}")

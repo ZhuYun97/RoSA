@@ -29,6 +29,7 @@ This is the first work dedicated to solving non-aligned node-node graph contrast
     ├── global_var.py                 # Code for storing global variable.
     ├── model.py                      # Code for building up model.
     ├── train.py                      # Training process.
+    ├── test_runs.py                  # Reproduce the results reported in our paper
     └── ...
 ```
 
@@ -41,7 +42,7 @@ conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11
 pip install torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric -f https://data.pyg.org/whl/torch-1.8.0+cu111.html
 ```
 ## Usage
-**Command for  training model on Cora dataset**
+**Command for training model on Cora dataset**
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train.py --dataset=Cora --config=config.yaml --ad=True --rectified=True
 ```
@@ -51,11 +52,19 @@ CUDA_VISIBLE_DEVICES=0 python train.py --dataset=Cora --config=config.yaml --ad=
 ```
 Now supported datasets include Cora, Citeseer, Pubmed, DBLP, Cornell, Wisconsin, Texas. More datasets are coming soon!
 
-**Command for  testing model on Cora dataset**<br>
+**Command for testing model on Cora dataset**<br>
 After training, the best checkpoint will be stored in `checkpoints\<Dataset>\` dir. Then you can test the checkpoint through this command:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python eval.py --dataset=Cora --config=config.yaml
 ```
+
+**Command for reproducing the results in the paper**<br>
+Because our results are based on 20 independent experiments. We provide the all(20) pre-trained ckpts of RoSA for Cora and Citeseer. As for other larger datasets, you can contact us by email if you need.<br>
+The usage is quite simple, you just run the command below. The ckpts will be downloaded automatically and the pre-trained models will be tested.
+```bash
+CUDA_VISIBLE_DEVICES=0 python test_runs.py --dataset=Cora
+```
+
 
 ### Illustration of arguements
 

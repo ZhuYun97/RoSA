@@ -1,5 +1,7 @@
 # checkpoints
 checkpoints/
+runs_ckpts_Cora
+runs_ckpts_Citeseer
 
 # records for running
 runs/
