@@ -116,7 +116,7 @@ If you use this code for you research, please cite our paper.
   pages     = {3795--3801},
   year      = {2022},
   month     = {7},
-  note      = {Main Track}
+  note      = {Main Track},
   doi       = {10.24963/ijcai.2022/527},
   url       = {https://doi.org/10.24963/ijcai.2022/527},
 }
